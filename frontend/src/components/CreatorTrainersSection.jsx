@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import './CreatorTrainersSection.css';
 import trainerIcon from '../assets/training.png'; 
 
-const mainTrainers = [
-  { name: 'Shivani', role: 'Soft Skills Trainer', image: '/shivani.jpg' },
-  { name: 'Suraj', role: 'Technical Trainer', image: '/suraj.jpg' },
-  { name: 'Amit Ashokan', role: 'Technical Trainer & Consultant', image: '/Amit Ashokan.jpg' }
-];
+// const mainTrainers = [
+//   { name: 'Shivani', role: 'Soft Skills Trainer', image: '/shivani.jpg' },
+//   { name: 'Suraj', role: 'Technical Trainer', image: '/suraj.jpg' },
+//   { name: 'Amit Ashokan', role: 'Technical Trainer & Consultant', image: '/Amit Ashokan.jpg' }
+// ];
 
 const CreatorTrainersSection = () => {
   return (
