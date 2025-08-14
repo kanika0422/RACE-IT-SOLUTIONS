@@ -1,0 +1,47 @@
+const express = require("express");
+const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const csvFilePath = path.join(process.cwd(), "contactData.csv");
+
+// Create CSV file with headers if not exists
+if (!fs.existsSync(csvFilePath)) {
+  fs.writeFileSync(csvFilePath, "Name,Email,Message,Date\n", "utf8");
+}
+
+app.post("/api/contact", (req, res) => {
+  const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: "All fields are required" });
+  }
+
+  // Current date & time in "YYYY-MM-DD HH:mm:ss"
+  const now = new Date();
+  const formattedDate = now.toISOString().replace("T", " ").substring(0, 19);
+
+  // Escape quotes in message
+  const safeMessage = message.replace(/"/g, '""');
+
+  // Append new row to CSV
+  const newLine = `"${name}","${email}","${safeMessage}","${formattedDate}"\n`;
+
+  fs.appendFile(csvFilePath, newLine, (err) => {
+    if (err) {
+      console.error("❌ Error writing to CSV", err);
+      return res.status(500).json({ success: false, error: "Failed to save message" });
+    }
+    console.log(`✅ Saved contact from ${name} at ${formattedDate}`);
+    res.json({ success: true, message: "Message saved successfully" });
+  });
+});
+
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`);
+});

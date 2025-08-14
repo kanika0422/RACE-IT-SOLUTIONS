@@ -1,0 +1,116 @@
+:root {
+  --primary-color: #f36f21;
+  --accent-color: #9a51a0;
+  --text-color: #222;
+  --muted-color: #666;
+  --bg-color: #ffffff;
+  --card-bg: #fdfdfd;
+  --card-hover: #fff2ea;
+  --transition-speed: 0.3s;
+}
+
+.client-list-section {
+  background: var(--bg-color);
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.client-heading {
+  font-size: 2.8rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.client-subtext {
+  font-size: 1.15rem;
+  color: var(--muted-color);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.client-search {
+  padding: 14px 22px;
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 50px;
+  display: block;
+  transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.client-search:focus {
+  outline: none;
+  border-color: #e76600;
+  box-shadow: 0 0 0 5px rgba(243, 111, 33, 0.2);
+}
+
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.client-card {
+  text-decoration: none;
+  background: var(--card-bg);
+  border: 1.5px solid var(--primary-color);
+  padding: 24px;
+  border-radius: 16px;
+  transition: all var(--transition-speed) ease;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.client-card:hover,
+.client-card:focus {
+  background-color: var(--card-hover);
+  transform: scale(1.04);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  z-index: 2;
+}
+
+.client-logo-wrapper {
+  background: #fff;
+  padding: 10px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.client-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.client-card:hover .client-logo {
+  transform: scale(1.1);
+}
+
+.client-name {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+  color: var(--accent-color);
+  transition: color 0.2s ease;
+}

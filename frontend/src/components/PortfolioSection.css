@@ -1,0 +1,80 @@
+.portfolio-section {
+  background: linear-gradient(to bottom right, #f8f8f8, #ffffff);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.portfolio-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.portfolio-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #9a51a0, #f36f21);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.portfolio-content h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #9a51a0;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.portfolio-content p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.portfolio-content strong {
+  color: #f36f21;
+  font-weight: 600;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .portfolio-content {
+    padding: 30px 20px;
+  }
+
+  .portfolio-content h2 {
+    font-size: 2rem;
+  }
+
+  .portfolio-content p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,76 @@
+/* Root styles */
+.work-videos-page {
+  padding: 60px 20px;
+  background: #fdfbff;
+  min-height: 100vh;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title with gradient text */
+.work-videos-title {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #9a51a0, #f36f21);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.work-videos-subtitle {
+  font-size: 1.1rem;
+  color: #5c5c5c;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* Grid styling */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* Individual video card */
+.video-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #9a51a0;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: #f36f21;
+}
+
+/* Video */
+.video-card video {
+  width: 100%;
+  border-radius: 12px;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+/* Video title */
+.video-card h3 {
+  font-size: 1rem;
+  margin-top: 12px;
+  color: #333;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 480px) {
+  .work-videos-title {
+    font-size: 1.8rem;
+  }
+
+  .video-card h3 {
+    font-size: 0.95rem;
+  }
+}
