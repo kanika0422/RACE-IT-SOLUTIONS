@@ -14,6 +14,10 @@ if (!fs.existsSync(csvFilePath)) {
   fs.writeFileSync(csvFilePath, "Name,Email,Message,Date\n", "utf8");
 }
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Contact API");
+});
+
 app.post("/api/contact", (req, res) => {
   const { name, email, message } = req.body;
 
