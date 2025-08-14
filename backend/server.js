@@ -1,10 +1,15 @@
-const express = require("express");
+const express = require("express"); 
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 
 const app = express();
-app.use(cors());
+
+// Allow only requests from your Netlify frontend
+app.use(cors({
+  origin: "https://race-it-solutions.netlify.app"
+}));
+
 app.use(express.json());
 
 const csvFilePath = path.join(process.cwd(), "contactData.csv");
@@ -25,14 +30,9 @@ app.post("/api/contact", (req, res) => {
     return res.status(400).json({ success: false, error: "All fields are required" });
   }
 
-  // Current date & time in "YYYY-MM-DD HH:mm:ss"
   const now = new Date();
   const formattedDate = now.toISOString().replace("T", " ").substring(0, 19);
-
-  // Escape quotes in message
   const safeMessage = message.replace(/"/g, '""');
-
-  // Append new row to CSV
   const newLine = `"${name}","${email}","${safeMessage}","${formattedDate}"\n`;
 
   fs.appendFile(csvFilePath, newLine, (err) => {
