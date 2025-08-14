@@ -5,16 +5,16 @@ const path = require("path");
 
 const app = express();
 
-// Allow only requests from your Netlify frontend
+// Allow requests from Netlify and localhost
 app.use(cors({
-  origin: "https://race-it-solutions.netlify.app"
+  origin: ["http://localhost:3000", "https://race-it-solutions.netlify.app"]
 }));
 
 app.use(express.json());
 
 const csvFilePath = path.join(process.cwd(), "contactData.csv");
 
-// Create CSV file with headers if not exists
+// Create CSV file with headers if it doesn't exist
 if (!fs.existsSync(csvFilePath)) {
   fs.writeFileSync(csvFilePath, "Name,Email,Message,Date\n", "utf8");
 }
