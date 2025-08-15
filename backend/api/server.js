@@ -45,11 +45,7 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
+// ✅ Export as a serverless function for Vercel
 module.exports = (req, res) => {
   app(req, res);
 };
-
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
-});
