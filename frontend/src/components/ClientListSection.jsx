@@ -1,12 +1,23 @@
+// src/components/ClientListSection.js
 import React, { useState } from 'react';
 import './ClientListSection.css';
+
+// Function to get favicon from Google service
+const getFavicon = (url) => {
+  try {
+    const domain = new URL(url).hostname;
+    return `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+  } catch {
+    return 'https://cdn-icons-png.flaticon.com/512/847/847969.png'; // fallback
+  }
+};
 
 const clients = [
   { name: 'Etrains India', url: 'https://www.etrains.in', logo: '' },
   { name: 'Orange', url: 'https://www.orange.com', logo: '' },
-  { name: 'Infosys', url: 'https://www.infosys.com', logo: '' },
-  { name: 'Capgemini', url: 'https://www.capgemini.com', logo: '' },
-  { name: 'TCS', url: 'https://www.tcs.com', logo: '' },
+  { name: 'Infosys', url: 'https://www.infosys.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Infosys_logo.svg' },
+  { name: 'Capgemini', url: 'https://www.capgemini.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Capgemini-logo.svg' },
+  { name: 'TCS', url: 'https://www.tcs.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tata_Consultancy_Services_Logo.svg' },
   { name: 'Inflow', url: '#', logo: '' },
   { name: 'Cantilever Labs', url: 'https://www.cantileverlabs.com', logo: '' },
   { name: 'Splen Technology', url: '#', logo: '' },
@@ -52,14 +63,14 @@ const ClientListSection = () => {
         {filteredClients.map((client, index) => (
           <a
             key={index}
-            href={client.url}
+            href={client.url || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="client-card"
           >
             <div className="client-logo-wrapper">
               <img
-                src={client.logo || 'https://cdn-icons-png.flaticon.com/512/847/847969.png'}
+                src={client.logo || getFavicon(client.url)}
                 alt={client.name}
                 className="client-logo"
               />
