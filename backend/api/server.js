@@ -12,7 +12,8 @@ app.use(cors({
 
 app.use(express.json());
 
-const csvFilePath = path.join(process.cwd(), "contactData.csv");
+// CSV file path in /tmp for Vercel
+const csvFilePath = path.join("/tmp", "contactData.csv");
 
 // Create CSV file with headers if it doesn't exist
 if (!fs.existsSync(csvFilePath)) {
@@ -45,7 +46,7 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
-// ✅ Export as a serverless function for Vercel
+// Export as Vercel serverless function
 module.exports = (req, res) => {
   app(req, res);
 };
