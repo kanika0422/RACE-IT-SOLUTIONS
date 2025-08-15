@@ -15,9 +15,9 @@ const getFavicon = (url) => {
 const clients = [
   { name: 'Etrains India', url: 'https://www.etrains.in', logo: '' },
   { name: 'Orange', url: 'https://www.orange.com', logo: '' },
-  { name: 'Infosys', url: 'https://www.infosys.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Infosys_logo.svg' },
-  { name: 'Capgemini', url: 'https://www.capgemini.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Capgemini-logo.svg' },
-  { name: 'TCS', url: 'https://www.tcs.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tata_Consultancy_Services_Logo.svg' },
+  { name: 'Infosys', url: 'https://www.infosys.com', logo: 'https://cdn.iconscout.com/icon/free/png-512/free-infosys-2850045-2370783.png' },
+  { name: 'Capgemini', url: 'https://www.capgemini.com', logo: 'https://companieslogo.com/img/orig/CAP.PA-9b4110b0.png' },
+  { name: 'TCS', url: 'https://www.tcs.com', logo: 'https://cdn.brandfetch.io/idK2mWG2SJ/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B' },
   { name: 'Inflow', url: '#', logo: '' },
   { name: 'Cantilever Labs', url: 'https://www.cantileverlabs.com', logo: '' },
   { name: 'Splen Technology', url: '#', logo: '' },

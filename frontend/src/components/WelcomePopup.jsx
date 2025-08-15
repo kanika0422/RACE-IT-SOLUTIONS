@@ -19,7 +19,7 @@ const WelcomePopup = () => {
     <div className="welcome-overlay">
       <div className="welcome-modal" data-aos="zoom-in">
         <button className="welcome-close" onClick={handleClose}>×</button>
-        <img src="/NEW LOGO.png" alt="Race Logo" className="welcome-logo" />
+        {/* <img src="/NEW LOGO.png" alt="Race Logo" className="welcome-logo" /> */}
         <h2 className="welcome-heading">Welcome to <span>RACE IT Solution</span></h2>
         <p className="welcome-message">
           Empowering your future with innovative learning and technical excellence.
