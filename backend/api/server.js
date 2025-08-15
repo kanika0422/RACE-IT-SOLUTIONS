@@ -45,6 +45,10 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
+module.exports = (req, res) => {
+  app(req, res);
+};
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
