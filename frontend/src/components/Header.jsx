@@ -26,7 +26,7 @@ const Header = () => {
         <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
           <li>
   <a
-    href="http://localhost:5000" // change to live URL after deployment
+    href="https://race-next-step.netlify.app/" 
     target="_blank"
     rel="noopener noreferrer"
   >
