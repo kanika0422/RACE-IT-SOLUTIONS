@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('/hero-bg.jpg') center/cover no-repeat; /* if you have bg */
+  /* background: url('/hero-bg.jpg') center/cover no-repeat; */
   text-align: center;
   padding: 40px 20px;
 }
