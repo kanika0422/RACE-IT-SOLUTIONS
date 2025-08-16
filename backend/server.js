@@ -54,7 +54,7 @@ app.listen(PORT, () => {
 
 
 app.get("/api/contacts", (req, res) => {
-  const filePath = path.join(process.cwd(), "contacts.csv");
+  const filePath = path.join(process.cwd(), "contactData.csv");
 
   if (fs.existsSync(filePath)) {
     res.download(filePath); // lets you download the CSV
