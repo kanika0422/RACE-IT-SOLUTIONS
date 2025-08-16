@@ -21,11 +21,14 @@ import StatsHighlightSection from './components/StatsHighlightSection';
 import CreatorTrainersSection from './components/CreatorTrainersSection';
 import WelcomePopup from './components/WelcomePopup';
 import ClientListSection from './components/ClientListSection';
-import DomainsPage from './components/DomainsPage';
-import WorkVideosPage from './components/WorkVideosPage';
+// import DomainsPage from './components/DomainsPage';
+// import WorkVideosPage from './components/WorkVideosPage';
 
 // New Page
 import GalleryPage from './pages/GalleryPage'; 
+import Domain from './pages/Domain';
+import WorkVideos from './pages/WorkVideos';
+
 function App() {
   const [showGetStarted, setShowGetStarted] = useState(false);
   const [showWelcomePopup, setShowWelcomePopup] = useState(true);
@@ -61,9 +64,9 @@ function App() {
             </>
           }
         />
-        <Route path="/domains" element={<DomainsPage />} />
+        <Route path="/domains" element={<Domain />} />
         <Route path="/gallery" element={<GalleryPage />} /> 
-        <Route path="/work-videos" element={<WorkVideosPage />} /> 
+        <Route path="/work-videos" element={<WorkVideos />} /> 
 
       </Routes>
     </div>

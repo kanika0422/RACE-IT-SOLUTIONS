@@ -3,7 +3,7 @@ import './TestimonialsSection.css';
 
 const testimonials = [
   {
-    name: 'Chandan',
+    name: 'Lauren',
     image: 'https://randomuser.me/api/portraits/women/45.jpg',
     message: `C & C++ awesome trainer Mr. Lavish Arora sir… Too good teaching style & knowledge but some time don't have much more time we know. Now I got the job in uhg… Nice institute & reasonable fee.`,
   },
@@ -13,7 +13,7 @@ const testimonials = [
     message: `Python course was very practical and helpful. The trainer explained everything with real-time projects.`,
   },
   {
-    name: 'Sneha',
+    name: 'Selena',
     image: 'https://randomuser.me/api/portraits/women/36.jpg',
     message: `Data Science classes helped me understand core ML concepts easily. The placement support was good.`,
   },
