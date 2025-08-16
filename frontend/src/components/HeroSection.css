@@ -1,14 +1,14 @@
 .hero {
-  height: 100vh;
+  position: relative; /* anchor for popup */
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background: url('/hero-bg.jpg') center/cover no-repeat; /* if you have bg */
   text-align: center;
-  padding: 60px 20px;
-  background: radial-gradient(circle at top left, #2b2b2b, #1e1e1e);
-  position: relative;
-  overflow: hidden;
+  padding: 40px 20px;
 }
+
 
 .hero::before {
   content: "";

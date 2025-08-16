@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import './Header.css';
 import GetStarted from './GetStarted';
-import WelcomePopup from './WelcomePopup'; // import popup here
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,19 +20,19 @@ const Header = () => {
       <header className="site-header">
         <div className="logo">
           <img src="/NEW LOGO.png" alt="Race Logo" style={{ height: '40px' }} />
-          <span>RACE IT</span>
+          <span>RACE</span>
         </div>
 
         <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
           <li>
-            <a
-              href="https://race-next-step.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="race-next-step-btn">RACE-NEXT-STEP</button>
-            </a>
-          </li>
+  <a
+    href="https://race-next-step.netlify.app/" 
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button className="race-next-step-btn">RACE-NEXT-STEP</button>
+  </a>
+</li>
           <HashLink smooth to="/#home" onClick={() => setMenuOpen(false)}>Home</HashLink>
           <HashLink smooth to="/#courses" onClick={() => setMenuOpen(false)}>Courses</HashLink>
           <HashLink smooth to="/#creators" onClick={() => setMenuOpen(false)}>Trainers</HashLink>
@@ -50,9 +49,6 @@ const Header = () => {
           <div className="bar"></div>
           <div className="bar"></div>
         </div>
-
-        {/* 👇 Place popup inside header */}
-        <WelcomePopup />
       </header>
 
       {showModal && <GetStarted onClose={() => setShowModal(false)} />}
