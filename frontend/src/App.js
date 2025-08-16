@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -21,10 +21,8 @@ import StatsHighlightSection from './components/StatsHighlightSection';
 import CreatorTrainersSection from './components/CreatorTrainersSection';
 import WelcomePopup from './components/WelcomePopup';
 import ClientListSection from './components/ClientListSection';
-// import DomainsPage from './components/DomainsPage';
-// import WorkVideosPage from './components/WorkVideosPage';
 
-// New Page
+// New Pages
 import GalleryPage from './pages/GalleryPage'; 
 import Domain from './pages/Domain';
 import WorkVideos from './pages/WorkVideos';
@@ -38,38 +36,55 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {showWelcomePopup && <WelcomePopup onClose={() => setShowWelcomePopup(false)} />}
-      {showGetStarted && <GetStarted onClose={() => setShowGetStarted(false)} />}
+    <Router>
+      <div className="App">
+        {showWelcomePopup && <WelcomePopup onClose={() => setShowWelcomePopup(false)} />}
+        {showGetStarted && <GetStarted onClose={() => setShowGetStarted(false)} />}
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header onGetStartedClick={() => setShowGetStarted(true)} />
-              <HeroSection />
-              <AboutSection />
-              <PortfolioSection />
-              <StatsHighlightSection />
-              <CreatorTrainersSection />
-              <ServicesSection />
-              <CoursesSection />
-              {/* <TrainersSection /> */}
-              {/* GallerySection moved to separate page */}
-              <TestimonialsSection />
-              <ContactSection />
-              <ClientListSection />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/domains" element={<Domain />} />
-        <Route path="/gallery" element={<GalleryPage />} /> 
-        <Route path="/work-videos" element={<WorkVideos />} /> 
+        <Routes>
+          {/* Home Page */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Header onGetStartedClick={() => setShowGetStarted(true)} />
+                <HeroSection />
+                <AboutSection />
+                <PortfolioSection />
+                <StatsHighlightSection />
+                <CreatorTrainersSection />
+                <ServicesSection />
+                <CoursesSection />
+                {/* <TrainersSection /> */}
+                <TestimonialsSection />
+                <ContactSection />
+                <ClientListSection />
 
-      </Routes>
-    </div>
+                {/* Example buttons to other pages */}
+                <div style={{ textAlign: 'center', margin: '20px' }}>
+                  <Link to="/domains">
+                    <button>Go to Domains</button>
+                  </Link>
+                  <Link to="/gallery" style={{ marginLeft: '10px' }}>
+                    <button>Go to Gallery</button>
+                  </Link>
+                  <Link to="/work-videos" style={{ marginLeft: '10px' }}>
+                    <button>Go to Work Videos</button>
+                  </Link>
+                </div>
+
+                <Footer />
+              </>
+            }
+          />
+
+          {/* Other Pages */}
+          <Route path="/domains" element={<Domain />} />
+          <Route path="/gallery" element={<GalleryPage />} /> 
+          <Route path="/work-videos" element={<WorkVideos />} /> 
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
