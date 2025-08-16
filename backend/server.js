@@ -70,6 +70,16 @@ app.get("/api/contacts", (req, res) => {
   });
 });
 
+app.get("/api/download", (req, res) => {
+  const filePath = path.join(process.cwd(), "contactData.csv");
+
+  if (fs.existsSync(filePath)) {
+    res.download(filePath, "contactData.csv"); // triggers download
+  } else {
+    res.status(404).send("No contacts file found");
+  }
+});
+
 // Start server on Render's assigned PORT
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
