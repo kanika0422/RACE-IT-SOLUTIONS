@@ -54,10 +54,11 @@ app.listen(PORT, () => {
 
 
 app.get("/api/contacts", (req, res) => {
-  res.sendFile(csvFilePath, (err) => {
-    if (err) {
-      console.error("❌ Error sending file:", err);
-      res.status(500).send("Could not retrieve contacts");
-    }
-  });
+  const filePath = path.join(process.cwd(), "contacts.csv");
+
+  if (fs.existsSync(filePath)) {
+    res.download(filePath); // lets you download the CSV
+  } else {
+    res.status(404).send("No contacts file found");
+  }
 });
