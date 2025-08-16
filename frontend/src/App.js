@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,6 +11,7 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import CoursesSection from './components/CoursesSection';
+// import TrainersSection from './components/TrainersSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -20,8 +21,10 @@ import StatsHighlightSection from './components/StatsHighlightSection';
 import CreatorTrainersSection from './components/CreatorTrainersSection';
 import WelcomePopup from './components/WelcomePopup';
 import ClientListSection from './components/ClientListSection';
+// import DomainsPage from './components/DomainsPage';
+// import WorkVideosPage from './components/WorkVideosPage';
 
-// New Pages
+// New Page
 import GalleryPage from './pages/GalleryPage'; 
 import Domain from './pages/Domain';
 import WorkVideos from './pages/WorkVideos';
@@ -40,7 +43,6 @@ function App() {
       {showGetStarted && <GetStarted onClose={() => setShowGetStarted(false)} />}
 
       <Routes>
-        {/* Home Page */}
         <Route
           path="/"
           element={
@@ -53,32 +55,19 @@ function App() {
               <CreatorTrainersSection />
               <ServicesSection />
               <CoursesSection />
+              {/* <TrainersSection /> */}
+              {/* GallerySection moved to separate page */}
               <TestimonialsSection />
               <ContactSection />
               <ClientListSection />
-
-              {/* Example buttons to other pages */}
-              <div style={{ textAlign: 'center', margin: '20px' }}>
-                <Link to="/domains">
-                  <button>Go to Domains</button>
-                </Link>
-                <Link to="/gallery" style={{ marginLeft: '10px' }}>
-                  <button>Go to Gallery</button>
-                </Link>
-                <Link to="/work-videos" style={{ marginLeft: '10px' }}>
-                  <button>Go to Work Videos</button>
-                </Link>
-              </div>
-
               <Footer />
             </>
           }
         />
-
-        {/* Other Pages */}
         <Route path="/domains" element={<Domain />} />
         <Route path="/gallery" element={<GalleryPage />} /> 
         <Route path="/work-videos" element={<WorkVideos />} /> 
+
       </Routes>
     </div>
   );
