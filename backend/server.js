@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Contact API (Render version 🚀)");
 });
 
+// ✅ Save contact
 app.post("/api/contact", (req, res) => {
   const { name, email, message } = req.body;
 
@@ -46,14 +47,27 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
+// ✅ Fetch all contacts (show in browser, not download)
 app.get("/api/contacts", (req, res) => {
-  const filePath = path.join(process.cwd(), "contactData.csv");
-
-  if (fs.existsSync(filePath)) {
-    res.download(filePath); // lets you download the CSV
-  } else {
-    res.status(404).send("No contacts file found");
+  if (!fs.existsSync(csvFilePath)) {
+    return res.json({ contacts: [] });
   }
+
+  fs.readFile(csvFilePath, "utf8", (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: "Failed to read contacts" });
+    }
+
+    const rows = data.trim().split("\n");
+
+    // Remove header row
+    const contacts = rows.slice(1).map(line => {
+      const [name, email, message, date] = line.split(",").map(field => field.replace(/(^"|"$)/g, ""));
+      return { name, email, message, date };
+    });
+
+    res.json({ contacts });
+  });
 });
 
 // Start server on Render's assigned PORT
@@ -61,5 +75,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
-
-
