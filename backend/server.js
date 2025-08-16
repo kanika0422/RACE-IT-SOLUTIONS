@@ -21,7 +21,7 @@ if (!fs.existsSync(csvFilePath)) {
 }
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Contact API (Render version 🚀)");
+  res.send("Welcome to the Contact API");
 });
 
 // ✅ Save contact
