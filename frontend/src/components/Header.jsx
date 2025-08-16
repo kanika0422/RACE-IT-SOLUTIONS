@@ -20,7 +20,7 @@ const Header = () => {
       <header className="site-header">
         <div className="logo">
           <img src="/NEW LOGO.png" alt="Race Logo" style={{ height: '40px' }} />
-          <span>RACE</span>
+          <span>RACE IT</span>
         </div>
 
         <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
