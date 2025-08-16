@@ -12,8 +12,8 @@ app.use(cors({
 
 app.use(express.json());
 
-// CSV file path in /tmp for Vercel
-const csvFilePath = path.join("/tmp", "contactData.csv");
+// CSV file path (inside project folder, not /tmp anymore)
+const csvFilePath = path.join(__dirname, "contactData.csv");
 
 // Create CSV file with headers if it doesn't exist
 if (!fs.existsSync(csvFilePath)) {
@@ -21,7 +21,7 @@ if (!fs.existsSync(csvFilePath)) {
 }
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Contact API");
+  res.send("Welcome to the Contact API (Render version 🚀)");
 });
 
 app.post("/api/contact", (req, res) => {
@@ -46,7 +46,8 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
-// Export as Vercel serverless function
-module.exports = (req, res) => {
-  app(req, res);
-};
+// Start server on Render's assigned PORT
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
