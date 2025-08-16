@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeroSection.css';
-import WelcomePopup from './WelcomePopup'; // ✅ import here
+// import WelcomePopup from './WelcomePopup'; // ✅ import here
 
 const HeroSection = () => {
   return (
@@ -22,7 +22,7 @@ const HeroSection = () => {
       </div>
 
       {/* ✅ Place popup inside hero */}
-      <WelcomePopup />
+      {/* <WelcomePopup /> */}
     </section>
   );
 };
