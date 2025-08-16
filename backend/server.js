@@ -46,13 +46,6 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
-// Start server on Render's assigned PORT
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
-
-
 app.get("/api/contacts", (req, res) => {
   const filePath = path.join(process.cwd(), "contactData.csv");
 
@@ -62,3 +55,11 @@ app.get("/api/contacts", (req, res) => {
     res.status(404).send("No contacts file found");
   }
 });
+
+// Start server on Render's assigned PORT
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
+
+
