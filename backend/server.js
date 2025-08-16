@@ -51,3 +51,13 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
+
+app.get("/api/contacts", (req, res) => {
+  res.sendFile(csvFilePath, (err) => {
+    if (err) {
+      console.error("❌ Error sending file:", err);
+      res.status(500).send("Could not retrieve contacts");
+    }
+  });
+});
