@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   z-index: 2000;
-  padding: 10px; /* ensures modal has breathing room on small screens */
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -27,11 +27,11 @@
 }
 
 @keyframes zoomIn {
-  0% {
+  from {
     transform: scale(0.6);
     opacity: 0;
   }
-  100% {
+  to {
     transform: scale(1);
     opacity: 1;
   }
@@ -49,15 +49,12 @@
   font-weight: bold;
 }
 
-/* .welcome-logo {
-  width: 280px;
-  margin-bottom: 20px;
-} */
-
 .welcome-heading {
-  font-size: 24px;
+  font-size: 2rem;
   margin-bottom: 15px;
   color: #9a51a0; /* primary purple */
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
 .welcome-heading span {
@@ -65,31 +62,33 @@
 }
 
 .welcome-message {
-  font-size: 16px;
+  font-size: 1rem;
   color: #555;
   margin-bottom: 30px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .welcome-btn {
-  background: #f36f21;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 25px;
+  background: linear-gradient(45deg, #9a51a0, #f36f21);
+  color: white;
+  padding: 14px 32px;
+  font-size: 1rem;
   font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(243, 111, 33, 0.3);
   display: inline-block;
 }
 
 .welcome-btn:hover {
-  background: #fff;
-  color: #f36f21;
-  border: 2px solid #f36f21;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(154, 81, 160, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Mobile responsiveness --- */
+/* Responsive */
 @media (max-width: 768px) {
   .welcome-modal {
     padding: 30px 20px;
@@ -97,41 +96,54 @@
   }
 
   .welcome-heading {
-    font-size: 20px;
+    font-size: 1.6rem;
   }
 
   .welcome-message {
-    font-size: 15px;
+    font-size: 0.95rem;
   }
 
   .welcome-btn {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
   }
 
   .welcome-close {
     font-size: 20px;
-    top: 10px;
-    right: 12px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .welcome-modal {
     padding: 20px 15px;
   }
 
   .welcome-heading {
-    font-size: 18px;
+    font-size: 1.4rem;
   }
 
   .welcome-message {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 
   .welcome-btn {
-    width: 100%; /* full-width button on tiny devices */
+    width: 100%;
     padding: 12px;
-    font-size: 14px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .welcome-heading {
+    font-size: 1.2rem;
+  }
+
+  .welcome-message {
+    font-size: 0.85rem;
+  }
+
+  .welcome-btn {
+    font-size: 0.85rem;
+    padding: 10px;
   }
 }
