@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,7 +11,6 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import CoursesSection from './components/CoursesSection';
-// import TrainersSection from './components/TrainersSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -36,55 +35,52 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        {showWelcomePopup && <WelcomePopup onClose={() => setShowWelcomePopup(false)} />}
-        {showGetStarted && <GetStarted onClose={() => setShowGetStarted(false)} />}
+    <div className="App">
+      {showWelcomePopup && <WelcomePopup onClose={() => setShowWelcomePopup(false)} />}
+      {showGetStarted && <GetStarted onClose={() => setShowGetStarted(false)} />}
 
-        <Routes>
-          {/* Home Page */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Header onGetStartedClick={() => setShowGetStarted(true)} />
-                <HeroSection />
-                <AboutSection />
-                <PortfolioSection />
-                <StatsHighlightSection />
-                <CreatorTrainersSection />
-                <ServicesSection />
-                <CoursesSection />
-                {/* <TrainersSection /> */}
-                <TestimonialsSection />
-                <ContactSection />
-                <ClientListSection />
+      <Routes>
+        {/* Home Page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header onGetStartedClick={() => setShowGetStarted(true)} />
+              <HeroSection />
+              <AboutSection />
+              <PortfolioSection />
+              <StatsHighlightSection />
+              <CreatorTrainersSection />
+              <ServicesSection />
+              <CoursesSection />
+              <TestimonialsSection />
+              <ContactSection />
+              <ClientListSection />
 
-                {/* Example buttons to other pages */}
-                <div style={{ textAlign: 'center', margin: '20px' }}>
-                  <Link to="/domains">
-                    <button>Go to Domains</button>
-                  </Link>
-                  <Link to="/gallery" style={{ marginLeft: '10px' }}>
-                    <button>Go to Gallery</button>
-                  </Link>
-                  <Link to="/work-videos" style={{ marginLeft: '10px' }}>
-                    <button>Go to Work Videos</button>
-                  </Link>
-                </div>
+              {/* Example buttons to other pages */}
+              <div style={{ textAlign: 'center', margin: '20px' }}>
+                <Link to="/domains">
+                  <button>Go to Domains</button>
+                </Link>
+                <Link to="/gallery" style={{ marginLeft: '10px' }}>
+                  <button>Go to Gallery</button>
+                </Link>
+                <Link to="/work-videos" style={{ marginLeft: '10px' }}>
+                  <button>Go to Work Videos</button>
+                </Link>
+              </div>
 
-                <Footer />
-              </>
-            }
-          />
+              <Footer />
+            </>
+          }
+        />
 
-          {/* Other Pages */}
-          <Route path="/domains" element={<Domain />} />
-          <Route path="/gallery" element={<GalleryPage />} /> 
-          <Route path="/work-videos" element={<WorkVideos />} /> 
-        </Routes>
-      </div>
-    </Router>
+        {/* Other Pages */}
+        <Route path="/domains" element={<Domain />} />
+        <Route path="/gallery" element={<GalleryPage />} /> 
+        <Route path="/work-videos" element={<WorkVideos />} /> 
+      </Routes>
+    </div>
   );
 }
 
